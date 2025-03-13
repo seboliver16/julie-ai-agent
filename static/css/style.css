@@ -1,0 +1,209 @@
+:root {
+    --primary-color: #2d3748;
+    --secondary-color: #4a5568;
+    --accent-color: #4299e1;
+    --background-color: #f7fafc;
+    --text-color: #1a202c;
+    --border-color: #e2e8f0;
+    --success-color: #48bb78;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.search-form, .experts-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.expert-card {
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background-color: white;
+}
+
+.actions-feed {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.action-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.timestamp {
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+}
+
+.profile-link {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+.status-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.status-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 30%;
+    text-align: center;
+}
+
+.status-card h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+}
+
+.status-card span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.action-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.action-status {
+    font-weight: bold;
+}
+
+.action-type-search_initiated {
+    border-left: 4px solid #4299e1;
+}
+
+.action-type-search_completed {
+    border-left: 4px solid #48bb78;
+}
+
+.action-type-scheduling_initiated {
+    border-left: 4px solid #ed8936;
+}
+
+.action-type-scheduling_completed {
+    border-left: 4px solid #9f7aea;
+}
+
+.confirmation-panel {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-message {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.confirmation-message h2 {
+    color: var(--success-color);
+}
+
+.selected-experts {
+    margin-bottom: 2rem;
+}
+
+.next-steps {
+    margin-bottom: 2rem;
+}
+
+.next-steps ol {
+    padding-left: 1.5rem;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.action-buttons a {
+    width: 48%;
+}

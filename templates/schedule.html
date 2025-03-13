@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduling Confirmation - Julie AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Scheduling Confirmation</h1>
+            <p>Julie has sent your expert selection details</p>
+        </header>
+
+        <main>
+            <div class="confirmation-panel">
+                <div class="confirmation-message">
+                    <h2>Success!</h2>
+                    <p>An email has been sent to your address with details about the selected experts.</p>
+                    <p>Please check your inbox and reply with your availability to schedule calls.</p>
+                </div>
+                
+                <h3>Selected Experts</h3>
+                <div class="selected-experts">
+                    {% for expert in experts %}
+                    <div class="expert-card">
+                        <div class="expert-details">
+                            <h3>{{ expert.name }}</h3>
+                            <p class="title">{{ expert.title }}</p>
+                            <p class="company">{{ expert.company }}</p>
+                            <p class="location">{{ expert.location }}</p>
+                            <a href="{{ expert.profile_url }}" target="_blank" class="profile-link">View LinkedIn Profile</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="next-steps">
+                    <h3>Next Steps</h3>
+                    <ol>
+                        <li>Check your email for expert details</li>
+                        <li>Reply with your preferred availability</li>
+                        <li>Julie will coordinate with the experts</li>
+                        <li>You'll receive calendar invites for confirmed calls</li>
+                    </ol>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="{{ url_for('index') }}" class="btn-secondary">Start New Search</a>
+                    <a href="{{ url_for('monitor_view') }}" class="btn-primary">View Julie's Progress</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

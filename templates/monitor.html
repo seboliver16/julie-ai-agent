@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julie AI Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Julie AI Monitor</h1>
+            <p>Watch Julie's expert networking actions in real-time</p>
+        </header>
+
+        <main>
+            <div class="status-panel">
+                <div class="status-card">
+                    <h3>Active Searches</h3>
+                    <span id="active-searches">{{ active_searches }}</span>
+                </div>
+                <div class="status-card">
+                    <h3>Experts Found Today</h3>
+                    <span id="experts-found">{{ experts_found }}</span>
+                </div>
+                <div class="status-card">
+                    <h3>Scheduled Calls</h3>
+                    <span id="scheduled-calls">{{ scheduled_calls }}</span>
+                </div>
+            </div>
+
+            <div id="actions-feed" class="actions-feed">
+                {% for action in actions %}
+                <div class="action-card action-type-{{ action.action_type }}">
+                    <div class="action-header">
+                        <span class="timestamp">{{ action.timestamp }}</span>
+                        <span class="action-status">{{ action.status }}</span>
+                    </div>
+                    <h3>{{ action.action_type | replace('_', ' ') | title }}</h3>
+                    <div class="action-details">
+                        {% if action.action_type == 'search_initiated' and action.details %}
+                            <p>Query: "{{ action.details.get('query', 'N/A') }}"</p>
+                            <p>User: {{ action.details.get('email', 'N/A') }}</p>
+                        {% elif action.action_type == 'search_completed' and action.details %}
+                            <p>Found {{ action.details.get('experts_found', 0) }} experts</p>
+                            <p>Search time: {{ action.details.get('search_time', 'N/A') }}s</p>
+                        {% elif action.action_type == 'scheduling_initiated' and action.details %}
+                            <p>Selected experts: {{ action.details.get('selected_experts', 0) }}</p>
+                        {% elif action.action_type == 'scheduling_completed' and action.details %}
+                            <p>Scheduled with: {{ action.details.get('user_email', 'N/A') }}</p>
+                            <p>Email sent: {{ action.details.get('email_status', 'N/A') }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+    <script>
+        const lastActionId = 19;
+        // const lastActionId = {{ actions[-1].id if actions else 0 }};
+        const refreshInterval = 3000; // 3 seconds
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

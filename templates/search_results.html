@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Results - Julie AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Expert Results</h1>
+            <p>Julie found {{ experts|length }} experts matching your criteria</p>
+        </header>
+
+        <main>
+            <form action="{{ url_for('schedule') }}" method="POST" class="experts-form">
+                {% for expert in experts %}
+                <div class="expert-card">
+                    <input type="checkbox" name="expert_id" value="{{ expert.id }}" id="expert_{{ expert.id }}">
+                    <label for="expert_{{ expert.id }}" class="expert-details">
+                        <h3>{{ expert.name }}</h3>
+                        <p class="title">{{ expert.title }}</p>
+                        <p class="company">{{ expert.company }}</p>
+                        <p class="location">{{ expert.location }}</p>
+                        <a href="{{ expert.profile_url }}" target="_blank" class="profile-link">View LinkedIn Profile</a>
+                    </label>
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="btn-primary">Schedule Calls with Selected Experts</button>
+            </form>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
