@@ -59,15 +59,6 @@ The default `config.py` is set up for development. When you're ready for product
 ### Test Account
 - Email: julieai.contact@gmail.com
 
-## Deployment to julie.ai
-
-### Basic Deployment Steps
-1. Set up a server (AWS EC2, DigitalOcean, etc.)
-2. Clone the repository and install dependencies
-3. Update `config.py` with production settings
-4. Set up Nginx + Gunicorn
-5. Configure your domain to point to the server
-
 ### Quick Deploy Script
 Run this on your server:
 ```
@@ -91,6 +82,3 @@ sudo systemctl restart julie
 - Real-time monitoring dashboard
 - Calendar integrations (Google Calendar, Outlook)
 - Proprietary expert database
-
-## License
-MIT License
